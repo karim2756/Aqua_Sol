@@ -1,0 +1,9 @@
+Corn_Cercospora_leaf_spot Gray_leaf_spot
+Corn_healthy
+Corn_Northern_Leaf_Blight
+Potato___Early_blight
+Potato___healthy
+Potato___Late_blight
+Weeds
+Wheat_brown_rust
+Wheat___Healthy
