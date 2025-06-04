@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:aqua_sol/features/home/presentation/widgets/soil_card.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../../resources/routes_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -61,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                 childAspectRatio: cardWidth / 220,
                 children: [
                   FadeInDown(
-                    child: HomeCard(
+                    child: HomeCards(
                       onTap: () {
                         Navigator.pushNamed(context, Routes.weedDetection);
                       },
@@ -73,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   FadeInDown(
-                    child: HomeCard(
+                    child: HomeCards(
                       onTap: () {
                         Navigator.pushNamed(context, Routes.waterPumpRoute);
                       },
@@ -86,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   FadeInUp(
                     delay: Duration(milliseconds: 200),
-                    child: HomeCard(
+                    child: HomeCards(
                       onTap: () {},
                       title: AppStrings.solarPanels.tr(),
                       subtitle:
@@ -98,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   FadeInUp(
                     delay: Duration(milliseconds: 200),
-                    child: HomeCard(
+                    child: HomeCards(
                       onTap: () {},
                       title: AppStrings.farmMonitoring.tr(),
                       subtitle: AppStrings.farmMonitoringDescription.tr(),
@@ -110,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            StatCard(screenWidth: screenWidth, fontSize: fontSize),
+            SoilCard(screenWidth: screenWidth, fontSize: fontSize),
           ],
         ),
       ),
@@ -118,7 +119,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class HomeCard extends StatelessWidget {
+class HomeCards extends StatelessWidget {
   final String title;
   final String subtitle;
   final IconData icon;
@@ -126,7 +127,7 @@ class HomeCard extends StatelessWidget {
   final double fontSize;
   final void Function()? onTap;
 
-  const HomeCard({
+  const HomeCards({
     super.key,
     required this.title,
     required this.subtitle,
@@ -165,83 +166,6 @@ class HomeCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: fontSize * 0.9,
                     color: AppColor.lightBlack,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class StatCard extends StatelessWidget {
-  final double screenWidth;
-  final double fontSize;
-
-  const StatCard(
-      {super.key, required this.screenWidth, required this.fontSize});
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeInLeft(
-      animate: true,
-      delay: Duration(seconds: 1),
-      child: Container(
-        width: screenWidth,
-        margin: EdgeInsets.only(top: 10),
-        child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          elevation: 5,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(AppStrings.statisticsAndResults.tr(),
-                        style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.bold,
-                            color: AppColor.greenColor)),
-                    Icon(Icons.bar_chart,
-                        color: AppColor.greenColor, size: fontSize * 1.5),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Text("${AppStrings.status.tr()}: Stable",
-                    style: TextStyle(
-                        fontSize: fontSize * 0.9, color: AppColor.black)),
-                Text("${AppStrings.moisture.tr()}: Great",
-                    style: TextStyle(
-                        fontSize: fontSize * 0.9,
-                        color: AppColor.primaryColor)),
-                SizedBox(height: 15),
-                Center(
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      SizedBox(
-                        width: screenWidth * 0.2,
-                        height: screenWidth * 0.2,
-                        child: CircularProgressIndicator(
-                          value: 0.59,
-                          strokeWidth: 8,
-                          backgroundColor: AppColor.lightGreenColor,
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                              AppColor.primaryColor),
-                        ),
-                      ),
-                      Text("59%",
-                          style: TextStyle(
-                              fontSize: fontSize,
-                              fontWeight: FontWeight.bold,
-                              color: AppColor.black)),
-                    ],
                   ),
                 ),
               ],

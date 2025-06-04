@@ -30,6 +30,7 @@ environment:
 dependencies:
   animate_do: ^4.2.0
   bloc: ^9.0.0
+  connectivity_plus: ^6.1.4
   cupertino_icons: ^1.0.8
   device_preview: ^1.2.0
   easy_localization: ^3.0.7+1
