@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+await Firebase.initializeApp();
   // await dotenv.load(fileName: ".env");
   // await di.init();
   await EasyLocalization.ensureInitialized();
