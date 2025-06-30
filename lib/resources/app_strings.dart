@@ -81,6 +81,8 @@ class AppStrings {
   static const String working = "working";
   static const String notWorking = "notWorking";
   static const String waterTank = "waterTank";
+  static const String pump = "Pump";
+  static const String motor = "Motor";
 
 
   // live view camera
