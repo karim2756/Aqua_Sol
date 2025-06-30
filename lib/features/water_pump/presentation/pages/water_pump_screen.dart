@@ -52,7 +52,6 @@ class _WaterPumpScreenState extends State<WaterPumpScreen> {
         title: Text(
           AppStrings.waterPump.tr(),
           style: TextStyle(
-            fontSize: fontSize * 0.7,
             color: AppColor.whiteColor,
             fontWeight: FontWeight.bold,
           ),

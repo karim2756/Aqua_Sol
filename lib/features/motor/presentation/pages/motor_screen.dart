@@ -51,7 +51,6 @@ class _MotorScreenState extends State<MotorScreen> {
         title: Text(
           AppStrings.pivotMotor.tr(),
           style: TextStyle(
-            fontSize: fontSize * 0.7,
             color: AppColor.whiteColor,
             fontWeight: FontWeight.bold,
           ),
