@@ -68,11 +68,8 @@ class AppStrings {
   static const String statisticsAndResults = "statisticsAndResults";
   static const String weedCardDesc = "weedCardDesc";
   static const String pumpCardDesc = "pumpCardDesc";
-  static const String power = "power";
-  static const String produced = "produced";
   static const String volume = "volume";
-  static const String status = "status";
-  static const String moisture = "moisture";
+
 
 //water pump
   static const String turnOn = "turnOn";
@@ -81,6 +78,7 @@ class AppStrings {
   static const String working = "working";
   static const String notWorking = "notWorking";
   static const String waterTank = "waterTank";
+  static const String pump = "Pump";
 
 
   // live view camera
@@ -88,6 +86,14 @@ class AppStrings {
   static const String farmMonitoring = "farmMonitoring";
   static const String farmMonitoringDescription = "farmMonitoringDescription";
 
+ // motor
+  static const String pivotMotor = "pivotMotor";
+  static const String motorImage= "assets/images/pivot_motor2.png";
+  static const String motorSpeed = "motorSpeed";
+  static const String motorNowIs = "motorNowIs";
+  static const String motorWorking = "motorWorking";
+  static const String motorNotWorking = "motorNotWorking";
+  static const String motorDescription = "motorDescription";
 
   // weeds detection
   static const String noPredection = "noPredection";
@@ -103,9 +109,14 @@ class AppStrings {
   static const String newText = "newText";
   static const String makeSureImageInFocus = "makeSureImageInFocus";
 
-  // solar panels
+  // soil moisture
 
-  static const String solarPanels = "solarPanels";
-}
+  static const String status = "status";
+  static const String moisture = "moisture";
+  static const String bad = "bad";
+  static const String good = "good";
+  static const String stable = "stable";
+  
+  }
 
 enum NoRoute { title, body }

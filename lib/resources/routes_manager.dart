@@ -1,3 +1,5 @@
+import 'package:aqua_sol/features/motor/presentation/pages/motor_screen.dart';
+
 import 'app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +18,7 @@ class Routes {
   static const String homeRoute = "/home";
   static const String waterPumpRoute = "/water_pump";
   static const String weedDetection = "/weed_detection";
+  static const String motorRoute = "/motor_route";
 
   static Map<String, dynamic> routesList = {
     onboardingRoute: const OnboardingScreen(),
@@ -24,6 +27,7 @@ class Routes {
     signUpRoute: const SignUpScreen(),
     waterPumpRoute: WaterPumpScreen(),
     weedDetection: WeedDetectionScreen(),
+    motorRoute:  MotorScreen(),
   };
 
   static Scaffold get unDefinedRoute {
