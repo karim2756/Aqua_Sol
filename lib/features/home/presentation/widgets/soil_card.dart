@@ -64,11 +64,11 @@ class _SoilCardState extends State<SoilCard> {
 
   String getSoilStatus() {
     if (moistureValue <= 30) {
-      return 'Bad';
+      return AppStrings.bad.tr();
     } else if (moistureValue <= 60) {
-      return 'Stable';
+      return AppStrings.stable.tr();
     } else {
-      return 'Good';
+      return AppStrings.good.tr();
     }
   }
 
@@ -103,11 +103,11 @@ class _SoilCardState extends State<SoilCard> {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      Text("Status: ${getSoilStatus()}",
+                      Text("${AppStrings.status.tr()}: ${getSoilStatus()}",
                           style: TextStyle(
                               fontSize: widget.fontSize * 0.9,
                               color: AppColor.black)),
-                      Text("Moisture: ${moistureValue.toInt()}%",
+                      Text("${AppStrings.moisture.tr()}: ${moistureValue.toInt()}%",
                           style: TextStyle(
                               fontSize: widget.fontSize * 0.9,
                               color: AppColor.primaryColor)),

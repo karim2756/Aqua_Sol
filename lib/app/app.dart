@@ -1,4 +1,3 @@
-import 'package:aqua_sol/features/home/presentation/pages/home_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class AquaSol extends StatelessWidget {
       locale: context.locale,
       builder: DevicePreview.appBuilder,
       initialRoute: Routes.onboardingRoute,
-      home: HomeScreen(),
+      // home: HomeScreen(),
       onGenerateRoute:
           RouteGenerator.getRoute, // Use RouteGenerator for navigation
     );

@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:aqua_sol/features/home/presentation/widgets/home_cards.dart';
 import 'package:aqua_sol/features/home/presentation/widgets/soil_card.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../../resources/routes_manager.dart';
@@ -17,26 +18,25 @@ class HomeScreen extends StatelessWidget {
     double fontSize = screenWidth * 0.045;
 
     return Scaffold(
-     floatingActionButton: FloatingActionButton.extended(
-  backgroundColor: AppColor.primaryColor,
-  onPressed: () {
-    final currentLocale = context.locale;
-    final newLocale = currentLocale.languageCode == 'en' ? Locale('ar') : Locale('en');
-    context.setLocale(newLocale);
-  },
-  icon: Icon(
-    Icons.translate,
-    color: AppColor.whiteColor,
-  ),
-  label: Text(
-    context.locale.languageCode == 'en'
-        ? AppStrings.english
-        : AppStrings.arabic,
-    style: TextStyle(color: AppColor.whiteColor),
-  ),
-),
-
-
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: AppColor.primaryColor,
+        onPressed: () {
+          final currentLocale = context.locale;
+          final newLocale =
+              currentLocale.languageCode == 'en' ? Locale('ar') : Locale('en');
+          context.setLocale(newLocale);
+        },
+        icon: Icon(
+          Icons.translate,
+          color: AppColor.whiteColor,
+        ),
+        label: Text(
+          context.locale.languageCode == 'en'
+              ? AppStrings.english
+              : AppStrings.arabic,
+          style: TextStyle(color: AppColor.whiteColor),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
         title: Center(
@@ -88,11 +88,13 @@ class HomeScreen extends StatelessWidget {
                   FadeInUp(
                     delay: Duration(milliseconds: 200),
                     child: HomeCards(
-                      onTap: () {},
-                      title: AppStrings.solarPanels.tr(),
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.motorRoute);
+                      },
+                      title: AppStrings.pivotMotor.tr(),
                       subtitle:
-                          "77% ${AppStrings.power.tr()}\n5.2w ${AppStrings.produced.tr()}",
-                      icon: Icons.bolt,
+                          AppStrings.motorDescription.tr(),
+                      icon: Icons.power_settings_new_rounded,
                       color: AppColor.redColor,
                       fontSize: fontSize,
                     ),
@@ -113,64 +115,6 @@ class HomeScreen extends StatelessWidget {
             ),
             SoilCard(screenWidth: screenWidth, fontSize: fontSize),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomeCards extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final IconData icon;
-  final Color color;
-  final double fontSize;
-  final void Function()? onTap;
-
-  const HomeCards({
-    super.key,
-    required this.title,
-    required this.subtitle,
-    required this.icon,
-    required this.color,
-    required this.fontSize,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        elevation: 5,
-        child: Padding(
-          padding: const EdgeInsets.all(13.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(icon, color: color, size: fontSize * 2),
-                SizedBox(height: 10),
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: fontSize,
-                    fontWeight: FontWeight.bold,
-                    color: color,
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    fontSize: fontSize * 0.9,
-                    color: AppColor.lightBlack,
-                  ),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );
