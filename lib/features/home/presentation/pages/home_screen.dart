@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:aqua_sol/features/home/presentation/widgets/home_cards.dart';
 import 'package:aqua_sol/features/home/presentation/widgets/soil_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../../resources/routes_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double cardWidth = screenWidth * 0.45;
     double fontSize = screenWidth * 0.045;
-
+    final Uri liveStreamUrl = Uri.parse('http://172.20.10.5:5000/viewer');
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: AppColor.primaryColor,
@@ -92,8 +93,7 @@ class HomeScreen extends StatelessWidget {
                         Navigator.pushNamed(context, Routes.motorRoute);
                       },
                       title: AppStrings.pivotMotor.tr(),
-                      subtitle:
-                          AppStrings.motorDescription.tr(),
+                      subtitle: AppStrings.motorDescription.tr(),
                       icon: Icons.power_settings_new_rounded,
                       color: AppColor.redColor,
                       fontSize: fontSize,
@@ -102,7 +102,23 @@ class HomeScreen extends StatelessWidget {
                   FadeInUp(
                     delay: Duration(milliseconds: 200),
                     child: HomeCards(
-                      onTap: () {},
+                      onTap: () async {
+                        if (await canLaunchUrl(liveStreamUrl)) {
+                          await launchUrl(liveStreamUrl,
+                              mode: LaunchMode.externalApplication);
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                backgroundColor: AppColor.redColor,
+                                content: Text(
+                                  AppStrings.liveCameraError.tr(),
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.035,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          );
+                        }
+                      },
                       title: AppStrings.farmMonitoring.tr(),
                       subtitle: AppStrings.farmMonitoringDescription.tr(),
                       icon: Icons.video_camera_back_outlined,

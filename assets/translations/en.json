@@ -65,7 +65,8 @@
     "pivotMotor":"Pivot's motor",
     "stable":"Stable",
     "bad":"Bad",
-    "good":"Good"
+    "good":"Good",
+    "liveCameraError":"Unable to launch live camera"
 
 
 }
