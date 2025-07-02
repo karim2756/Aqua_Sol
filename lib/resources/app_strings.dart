@@ -69,6 +69,7 @@ class AppStrings {
   static const String weedCardDesc = "weedCardDesc";
   static const String pumpCardDesc = "pumpCardDesc";
   static const String volume = "volume";
+  static const String liveCameraError= "liveCameraError";
 
 
 //water pump
