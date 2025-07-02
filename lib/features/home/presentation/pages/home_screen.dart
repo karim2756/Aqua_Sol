@@ -1,6 +1,8 @@
+import 'package:android_intent_plus/android_intent.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:aqua_sol/features/home/presentation/widgets/home_cards.dart';
 import 'package:aqua_sol/features/home/presentation/widgets/soil_card.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../../resources/routes_manager.dart';
@@ -102,23 +104,30 @@ class HomeScreen extends StatelessWidget {
                   FadeInUp(
                     delay: Duration(milliseconds: 200),
                     child: HomeCards(
-                      onTap: () async {
-                        if (await canLaunchUrl(liveStreamUrl)) {
-                          await launchUrl(liveStreamUrl,
-                              mode: LaunchMode.externalApplication);
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                backgroundColor: AppColor.redColor,
-                                content: Text(
-                                  AppStrings.liveCameraError.tr(),
-                                  style: TextStyle(
-                                      fontSize: screenWidth * 0.035,
-                                      fontWeight: FontWeight.bold),
-                                )),
-                          );
-                        }
-                      },
+onTap: () async {
+  try {
+    final intent = AndroidIntent(
+      action: 'action_view',
+      data: liveStreamUrl.toString(),
+      package: 'com.android.chrome',
+    );
+    await intent.launch();
+  } on PlatformException {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: AppColor.redColor,
+        content: Text(
+          "❌ Google Chrome غير مثبت على هذا الجهاز",
+          style: TextStyle(
+            fontSize: screenWidth * 0.035,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+},
+
                       title: AppStrings.farmMonitoring.tr(),
                       subtitle: AppStrings.farmMonitoringDescription.tr(),
                       icon: Icons.video_camera_back_outlined,
