@@ -16,8 +16,7 @@ class AquaSol extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       builder: DevicePreview.appBuilder,
-      initialRoute: Routes.onboardingRoute,
-      home: HomeScreen(),
+      initialRoute: Routes.splashScreen, 
       onGenerateRoute:
           RouteGenerator.getRoute, // Use RouteGenerator for navigation
     );

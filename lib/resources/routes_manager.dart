@@ -1,4 +1,5 @@
 import 'package:aqua_sol/features/motor/presentation/pages/motor_screen.dart';
+import 'package:aqua_sol/features/splash/splash_screen.dart';
 
 import '../features/water_pump/presentation/pages/water_pump_screen.dart';
 import 'app_strings.dart';
@@ -12,7 +13,8 @@ import '../features/signup/presentation/pages/signup_screen.dart';
 import '../features/weed_detection/presentation/pages/weed_detection_screen.dart';
 
 class Routes {
-  static const String onboardingRoute = "/";
+  static const String splashScreen = "/";
+  static const String onboardingRoute = "/onboarding";
   static const String loginRoute = "/login";
   static const String signUpRoute = "/singup";
   static const String homeRoute = "/home";
@@ -20,15 +22,16 @@ class Routes {
   static const String weedDetection = "/weed_detection";
   static const String motorRoute = "/motor_route";
 
-  static Map<String, dynamic> routesList = {
-    onboardingRoute: const OnboardingScreen(),
-    homeRoute: HomeScreen(),
-    loginRoute: const LoginScreen(),
-    signUpRoute: const SignUpScreen(),
-    waterPumpRoute: WaterPumpScreen(),
-    weedDetection: WeedDetectionScreen(),
-    motorRoute:  MotorScreen(),
-  };
+static Map<String, dynamic> routesList = {
+  onboardingRoute: const OnboardingScreen(),
+  splashScreen: const SplashScreen(), 
+  homeRoute: HomeScreen(),
+  loginRoute: const LoginScreen(),
+  signUpRoute: const SignUpScreen(),
+  waterPumpRoute: WaterPumpScreen(),
+  weedDetection: WeedDetectionScreen(),
+  motorRoute:  MotorScreen(),
+};
 
   static Scaffold get unDefinedRoute {
     return Scaffold(
