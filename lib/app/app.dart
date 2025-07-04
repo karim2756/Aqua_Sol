@@ -1,4 +1,3 @@
-import 'package:aqua_sol/features/home/presentation/pages/home_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

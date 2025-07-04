@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -16,9 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    // Navigate to home after 3 seconds
     Timer(const Duration(seconds: 3), () {
-Navigator.of(context).pushReplacementNamed(Routes.onboardingRoute);
+      Navigator.of(context).pushReplacementNamed(Routes.onboardingRoute);
     });
   }
 
@@ -27,28 +26,35 @@ Navigator.of(context).pushReplacementNamed(Routes.onboardingRoute);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Shimmer.fromColors(
-              baseColor: AppColor.greenColor,
-              highlightColor: AppColor.primaryColor,
-              child: Image.asset(
-                'assets/images/logo.png',
-                width: 150,
-                height: 150,
-              ),
-            ),
-            const SizedBox(height: 20),
-             Text(
-              "Aqua Sol",
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: AppColor.primaryColor
-              ),
-            ),
-          ],
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            double logoSize = constraints.maxWidth * 0.45;
+            double textSize = constraints.maxWidth * 0.08;
+
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Shimmer.fromColors(
+                  baseColor: AppColor.greenColor,
+                  highlightColor: AppColor.primaryColor,
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: logoSize,
+                    height: logoSize,
+                  ),
+                ),
+                SizedBox(height: constraints.maxHeight * 0.01),
+                Text(
+                  "Aqua Sol",
+                  style: TextStyle(
+                    fontSize: textSize,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.primaryColor,
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
