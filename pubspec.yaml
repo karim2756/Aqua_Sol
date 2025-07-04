@@ -48,7 +48,7 @@ dependencies:
   tflite_flutter: ^0.11.0
   url_launcher: ^6.3.1
   android_intent_plus: ^5.3.0
-  flutter_native_splash: ^2.4.6
+  flutter_native_splash: ^2.4.4
   shimmer: ^3.0.0  
 
 dev_dependencies:
