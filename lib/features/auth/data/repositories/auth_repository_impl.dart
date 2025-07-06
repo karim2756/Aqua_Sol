@@ -1,4 +1,4 @@
-import 'package:aqua_sol/resources/app_strings.dart';
+import '../../../../resources/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

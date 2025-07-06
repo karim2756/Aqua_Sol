@@ -1,7 +1,7 @@
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:aqua_sol/features/home/presentation/widgets/home_cards.dart';
-import 'package:aqua_sol/features/home/presentation/widgets/soil_card.dart';
+import '../widgets/home_cards.dart';
+import '../widgets/soil_card.dart';
 import 'package:flutter/services.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../../resources/routes_manager.dart';

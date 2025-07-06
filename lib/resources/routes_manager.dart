@@ -1,5 +1,5 @@
-import 'package:aqua_sol/features/motor/presentation/pages/motor_screen.dart';
-import 'package:aqua_sol/features/splash/splash_screen.dart';
+import '../features/motor/presentation/pages/motor_screen.dart';
+import '../features/splash/splash_screen.dart';
 
 import '../features/water_pump/presentation/pages/water_pump_screen.dart';
 import 'app_strings.dart';
