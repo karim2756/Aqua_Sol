@@ -160,7 +160,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           curve: Curves.ease,
                         );
                       } else {
-                        Navigator.pushNamed(context, Routes.loginRoute);
+                        Navigator.pushNamed(context, Routes.signInRoute);
                       }
                     },
                     child: Text(

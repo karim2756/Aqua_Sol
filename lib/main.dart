@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'injection_container.dart' as di;
 
 import 'app/app.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -8,7 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 await Firebase.initializeApp();
   // await dotenv.load(fileName: ".env");
-  // await di.init();
+  await di.init();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
     supportedLocales: const [
