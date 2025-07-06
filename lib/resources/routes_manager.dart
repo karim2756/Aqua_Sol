@@ -1,16 +1,15 @@
-import '../features/motor/presentation/pages/motor_screen.dart';
-import '../features/splash/splash_screen.dart';
-
-import '../features/water_pump/presentation/pages/water_pump_screen.dart';
-import 'app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../features/home/presentation/pages/home_screen.dart';
 import '../features/auth/presentation/pages/sign_in_screen.dart';
-import '../features/onboarding/presentation/pages/onboarding_screen.dart';
 import '../features/auth/presentation/pages/signup_screen.dart';
+import '../features/home/presentation/pages/home_screen.dart';
+import '../features/motor/presentation/pages/motor_screen.dart';
+import '../features/onboarding/presentation/pages/onboarding_screen.dart';
+import '../features/splash/splash_screen.dart';
+import '../features/water_pump/presentation/pages/water_pump_screen.dart';
 import '../features/weed_detection/presentation/pages/weed_detection_screen.dart';
+import 'app_strings.dart';
 
 class Routes {
   static const String splashScreen = "/";

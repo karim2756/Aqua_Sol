@@ -1,9 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class MotorRemoteDataSource {
-  final DatabaseReference _motorRef =
-  FirebaseDatabase.instance.ref('devices/motor/control');
 
+final _motorRef = FirebaseDatabase.instance.ref(dotenv.env['MOTOR_CONTROL_PATH']!);
   Future<bool> getMotorStatus() async {
     final snapshot = await _motorRef.get();
     return (snapshot.value == 1 || snapshot.value == true);

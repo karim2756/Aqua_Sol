@@ -1,6 +1,6 @@
-import 'package:aqua_sol/core/failures.dart';
-import 'package:aqua_sol/features/water_pump/domain/entities/water_pump_entity.dart';
-import 'package:aqua_sol/features/water_pump/domain/repositories/water_pump_repository.dart';
+import '../../../../core/failures.dart';
+import '../entities/water_pump_entity.dart';
+import '../repositories/water_pump_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class GetPumpStatus {

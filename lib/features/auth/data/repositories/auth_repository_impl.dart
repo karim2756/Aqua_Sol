@@ -1,8 +1,8 @@
-import '../../../../resources/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../core/netwrok_info.dart';
+import '../../../../resources/app_strings.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_remote_datasource.dart';

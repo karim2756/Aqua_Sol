@@ -1,8 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class WaterPumpRemoteDataSource {
-  final DatabaseReference _pumpRef =
-  FirebaseDatabase.instance.ref('devices/pump/control');
+
+final _pumpRef = FirebaseDatabase.instance.ref(dotenv.env['PUMP_CONTROL_PATH']!);
 
   Future<bool> getPumpStatus() async {
     final snapshot = await _pumpRef.get();
