@@ -1,7 +1,8 @@
+import 'package:android_intent_plus/android_intent.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:aqua_sol/features/home/presentation/widgets/home_cards.dart';
 import 'package:aqua_sol/features/home/presentation/widgets/soil_card.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../../resources/routes_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -19,38 +20,69 @@ class HomeScreen extends StatelessWidget {
     double fontSize = screenWidth * 0.045;
     final Uri liveStreamUrl = Uri.parse('http://172.20.10.5:5000/viewer');
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: AppColor.primaryColor,
-        onPressed: () {
-          final currentLocale = context.locale;
-          final newLocale =
-              currentLocale.languageCode == 'en' ? Locale('ar') : Locale('en');
-          context.setLocale(newLocale);
-        },
-        icon: Icon(
-          Icons.translate,
-          color: AppColor.whiteColor,
-        ),
-        label: Text(
-          context.locale.languageCode == 'en'
-              ? AppStrings.english
-              : AppStrings.arabic,
-          style: TextStyle(color: AppColor.whiteColor),
-        ),
-      ),
       appBar: AppBar(
+        title: Text(
+          "Aqua Sol",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: AppColor.whiteColor),
+        ),
+        iconTheme: IconThemeData(color: AppColor.whiteColor),
+        centerTitle: true,
         backgroundColor: AppColor.primaryColor,
-        title: Center(
-          child: Text(
-            "${AppStrings.welcomeBack.tr()}, Karim !",
-            style: TextStyle(
-                color: AppColor.whiteColor,
-                fontSize: fontSize * 1.5,
-                fontWeight: FontWeight.bold),
-          ),
+      ),
+      drawer: Drawer(
+        width: 250, // ✅ Reduce drawer width (default is 304 on phones)
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: AppColor.primaryColor,
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: AppColor.whiteColor,
+                    child: Icon(
+                      Icons.person,
+                      size: 35,
+                      color: AppColor.primaryColor,
+                    ),
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Text(
+                      "${AppStrings.welcomeBack.tr()},\nKarim!",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: AppColor.whiteColor,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.translate),
+              title: Text(
+                context.locale.languageCode == 'en'
+                    ? AppStrings.english
+                    : AppStrings.arabic,
+              ),
+              onTap: () {
+                final currentLocale = context.locale;
+                final newLocale = currentLocale.languageCode == 'en'
+                    ? Locale('ar')
+                    : Locale('en');
+                context.setLocale(newLocale);
+                Navigator.of(context).pop(); // close the drawer
+              },
+            ),
+          ],
         ),
       ),
-      backgroundColor: AppColor.whiteColor,
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -103,19 +135,25 @@ class HomeScreen extends StatelessWidget {
                     delay: Duration(milliseconds: 200),
                     child: HomeCards(
                       onTap: () async {
-                        if (await canLaunchUrl(liveStreamUrl)) {
-                          await launchUrl(liveStreamUrl,
-                              mode: LaunchMode.externalApplication);
-                        } else {
+                        try {
+                          final intent = AndroidIntent(
+                            action: 'action_view',
+                            data: liveStreamUrl.toString(),
+                            package: 'com.android.chrome',
+                          );
+                          await intent.launch();
+                        } on PlatformException {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                                backgroundColor: AppColor.redColor,
-                                content: Text(
-                                  AppStrings.liveCameraError.tr(),
-                                  style: TextStyle(
-                                      fontSize: screenWidth * 0.035,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                              backgroundColor: AppColor.redColor,
+                              content: Text(
+                                "❌ Google Chrome غير مثبت على هذا الجهاز",
+                                style: TextStyle(
+                                  fontSize: screenWidth * 0.035,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                           );
                         }
                       },
