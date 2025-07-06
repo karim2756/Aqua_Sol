@@ -1,130 +1,190 @@
-import 'package:firebase_database/firebase_database.dart';
+
+import 'package:aqua_sol/core/network_info.dart';
+import 'package:aqua_sol/features/motor/data/datasources/motor_remote_data_source.dart';
+import 'package:aqua_sol/features/motor/data/repositories/motor_repository_impl.dart';
+import 'package:aqua_sol/features/motor/domain/usecases/get_motor_status_usecase.dart';
+import 'package:aqua_sol/features/motor/domain/usecases/toggle_motor_usecase.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/services.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../../../../resources/app_color.dart';
 import '../../../../resources/app_strings.dart';
+import '../cubit/motor_cubit.dart';
 
-class MotorScreen extends StatefulWidget {
+class MotorScreen extends StatelessWidget {
   const MotorScreen({super.key});
 
   @override
-  _MotorScreenState createState() => _MotorScreenState();
-}
-
-class _MotorScreenState extends State<MotorScreen> {
-  bool isMotorOn = false;
-  final DatabaseReference _motorRef =
-      FirebaseDatabase.instance.ref('devices/motor/control');
-
-  @override
-  void initState() {
-    super.initState();
-    _listenToMotorStatus();
-  }
-
-  void _listenToMotorStatus() {
-    _motorRef.onValue.listen((event) {
-      final value = event.snapshot.value;
-      if (value != null) {
-        setState(() {
-          isMotorOn = (value == 1 || value == true);
-        });
-      }
-    });
-  }
-
-  void _toggleMotor() async {
-    final newValue = isMotorOn ? 0 : 1;
-    await _motorRef.set(newValue);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-    double fontSize = screenWidth * 0.075;
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.primaryColor,
-        title: Text(
-          AppStrings.pivotMotor.tr(),
-          style: TextStyle(
-            color: AppColor.whiteColor,
-            fontWeight: FontWeight.bold,
+    return BlocProvider(
+      create: (context) => MotorCubit(
+        getMotorStatus: GetMotorStatus(MotorRepositoryImpl(
+          remoteDataSource: MotorRemoteDataSource(),
+          networkInfo: NetworkInfoImpl(
+            Connectivity(),
+            InternetConnectionChecker.createInstance(),
+          ),
+        )),
+        toggleMotor: ToggleMotor(MotorRepositoryImpl(
+          remoteDataSource: MotorRemoteDataSource(),
+          networkInfo: NetworkInfoImpl(
+            Connectivity(),
+            InternetConnectionChecker.createInstance(),
+          ),
+        )),
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColor.primaryColor,
+          title: Text(
+            AppStrings.pivotMotor.tr(),
+            style: TextStyle(
+              color: AppColor.whiteColor,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Motor image
-            Image.asset(
-              AppStrings.motorImage,
-              width: screenWidth * 0.8,
-              height: screenHeight * 0.4,
-              fit: BoxFit.contain,
-            ),
-            SizedBox(height: screenHeight * 0.04),
+        body: BlocConsumer<MotorCubit, MotorState>(
+          listener: (context, state) {
+            if (state is MotorError) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.message.tr())),
+              );
+            }
+          },
+          builder: (context, state) {
+            final cubit = context.read<MotorCubit>();
+            final isMotorOn = state is MotorLoaded ? state.motor.isOn : false;
+            final isLoading = state is MotorLoading;
+            final isError = state is MotorError;
 
-            // Motor status
-            RichText(
-              text: TextSpan(
+            double screenWidth = MediaQuery.of(context).size.width;
+            double screenHeight = MediaQuery.of(context).size.height;
+            double fontSize = screenWidth * 0.06;
+
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextSpan(
-                    text: AppStrings.motorNowIs.tr(),
-                    style: TextStyle(
-                      fontSize: fontSize * 0.8,
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.lightBlack,
-                    ),
+                  // Motor image
+                  Image.asset(
+                    AppStrings.motorImage,
+                    width: screenWidth * 0.8,
+                    height: screenHeight * 0.4,
+                    fit: BoxFit.contain,
+                    color: isError ? Colors.grey : null,
+                    colorBlendMode: isError ? BlendMode.saturation : null,
                   ),
-                  TextSpan(
-                    text: isMotorOn
-                        ? AppStrings.motorWorking.tr()
-                        : AppStrings.motorNotWorking.tr(),
-                    style: TextStyle(
-                      fontSize: fontSize * 0.8,
-                      fontWeight: FontWeight.bold,
-                      color: isMotorOn
-                          ? AppColor.greenColor
-                          : AppColor.redColor,
+                  SizedBox(height: screenHeight * 0.04),
+
+
+                   if (isError)
+                    Column(
+                      children: [
+                        Icon(
+                          Icons.wifi_off,
+                          size: 50,
+                          color: AppColor.redColor,
+                        ),
+
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: () => cubit.getInitialStatus(),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.primaryColor,
+                          ),
+                          child: Text(
+                            AppStrings.retry.tr(),
+                            style: TextStyle(color: AppColor.whiteColor),
+                          ),
+                        ),
+                      ],
+                    )
+                  else
+                    Column(
+                      children: [
+                        // Status text
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: AppStrings.motorNowIs.tr(),
+                                style: TextStyle(
+                                  fontSize: fontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColor.lightBlack,
+                                ),
+                              ),
+                              TextSpan(
+                                text: isMotorOn
+                                    ? AppStrings.motorWorking.tr()
+                                    : AppStrings.motorNotWorking.tr(),
+                                style: TextStyle(
+                                  fontSize: fontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: isMotorOn
+                                      ? AppColor.greenColor
+                                      : AppColor.redColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.04),
+
+                        // Toggle button with loading indicator
+                        SizedBox(
+                          width: screenWidth * 0.3,
+                          height: screenWidth * 0.21,
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  if (!isLoading) {
+                                    HapticFeedback.lightImpact();
+                                    cubit.toggleMotor(!isMotorOn);
+                                  }
+                                },
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 300),
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: isMotorOn
+                                        ? AppColor.greenColor
+                                        : AppColor.redColor,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColor.black,
+                                        blurRadius: 10,
+                                        spreadRadius: 2,
+                                        offset: const Offset(0, 4),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Icon(
+                                    Icons.power_settings_new,
+                                    size: screenWidth * 0.1,
+                                    color: AppColor.whiteColor,
+                                  ),
+                                ),
+                              ),
+
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
                 ],
               ),
-            ),
-            SizedBox(height: screenHeight * 0.04),
-
-            // Power toggle button
-            GestureDetector(
-              onTap: _toggleMotor,
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                width: screenWidth * 0.3,
-                height: screenWidth * 0.21,
-                decoration: BoxDecoration(
-                  color: isMotorOn ? AppColor.greenColor : AppColor.redColor,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColor.black,
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Icon(
-                  Icons.power_settings_new,
-                  size: screenWidth * 0.1,
-                  color: AppColor.whiteColor,
-                ),
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );

@@ -1,10 +1,19 @@
 part of 'water_pump_cubit.dart';
 
-abstract class WaterPumpState extends Equatable {
+abstract class WaterPumpState {
   const WaterPumpState();
-
-  @override
-  List<Object> get props => [];
 }
 
 class WaterPumpInitial extends WaterPumpState {}
+
+class WaterPumpLoading extends WaterPumpState {}
+
+class WaterPumpLoaded extends WaterPumpState {
+  final WaterPumpEntity pump;
+  const WaterPumpLoaded(this.pump);
+}
+
+class WaterPumpError extends WaterPumpState {
+  final String message;
+  const WaterPumpError(this.message);
+}
