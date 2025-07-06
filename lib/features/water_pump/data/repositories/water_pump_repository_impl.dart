@@ -1,12 +1,13 @@
 // water_pump_repository_impl.dart
 import 'package:aqua_sol/core/failures.dart';
-import 'package:aqua_sol/core/network_info.dart';
 import 'package:aqua_sol/features/water_pump/data/datasources/water_pump_remote_data_source.dart';
 import 'package:aqua_sol/features/water_pump/domain/entities/water_pump_entity.dart';
 import 'package:aqua_sol/features/water_pump/domain/repositories/water_pump_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+
+import '../../../../core/netwrok_info.dart';
 
 
 class WaterPumpRepositoryImpl implements WaterPumpRepository {

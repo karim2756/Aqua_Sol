@@ -1,15 +1,8 @@
-
-import 'package:aqua_sol/core/network_info.dart';
-import 'package:aqua_sol/features/motor/data/datasources/motor_remote_data_source.dart';
-import 'package:aqua_sol/features/motor/data/repositories/motor_repository_impl.dart';
-import 'package:aqua_sol/features/motor/domain/usecases/get_motor_status_usecase.dart';
-import 'package:aqua_sol/features/motor/domain/usecases/toggle_motor_usecase.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+import '../../../../injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../../../../resources/app_color.dart';
 import '../../../../resources/app_strings.dart';
@@ -21,22 +14,7 @@ class MotorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MotorCubit(
-        getMotorStatus: GetMotorStatus(MotorRepositoryImpl(
-          remoteDataSource: MotorRemoteDataSource(),
-          networkInfo: NetworkInfoImpl(
-            Connectivity(),
-            InternetConnectionChecker.createInstance(),
-          ),
-        )),
-        toggleMotor: ToggleMotor(MotorRepositoryImpl(
-          remoteDataSource: MotorRemoteDataSource(),
-          networkInfo: NetworkInfoImpl(
-            Connectivity(),
-            InternetConnectionChecker.createInstance(),
-          ),
-        )),
-      ),
+      create: (context) => sl<MotorCubit>()..getInitialStatus(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColor.primaryColor,
@@ -81,17 +59,15 @@ class MotorScreen extends StatelessWidget {
                   ),
                   SizedBox(height: screenHeight * 0.04),
 
-
-                   if (isError)
+                  if (isError)
                     Column(
                       children: [
                         Icon(
                           Icons.wifi_off,
-                          size: 50,
+                          size: screenWidth * 0.13,
                           color: AppColor.redColor,
                         ),
-
-                        const SizedBox(height: 20),
+                        SizedBox(height: screenHeight * 0.025),
                         ElevatedButton(
                           onPressed: () => cubit.getInitialStatus(),
                           style: ElevatedButton.styleFrom(
@@ -175,7 +151,6 @@ class MotorScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
                         ),

@@ -2,12 +2,13 @@
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:animate_do/animate_do.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
+
 import '../../../../resources/app_color.dart';
 import '../../../../resources/app_strings.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 
 class SoilCard extends StatefulWidget {
   final double screenWidth;

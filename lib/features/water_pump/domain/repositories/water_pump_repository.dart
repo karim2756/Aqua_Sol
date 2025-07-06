@@ -1,5 +1,5 @@
-import 'package:aqua_sol/core/failures.dart';
-import 'package:aqua_sol/features/water_pump/domain/entities/water_pump_entity.dart';
+import '../../../../core/failures.dart';
+import '../entities/water_pump_entity.dart';
 import 'package:dartz/dartz.dart';
 
 

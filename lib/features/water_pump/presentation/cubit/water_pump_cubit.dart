@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:aqua_sol/core/failures.dart';
-import 'package:aqua_sol/features/water_pump/domain/entities/water_pump_entity.dart';
-import 'package:aqua_sol/features/water_pump/domain/usecases/get_pump_status_usecase.dart';
-import 'package:aqua_sol/features/water_pump/domain/usecases/toggle_pump_usecase.dart';
-import 'package:aqua_sol/resources/app_strings.dart';
+import '../../../../core/failures.dart';
+import '../../domain/entities/water_pump_entity.dart';
+import '../../domain/usecases/get_pump_status_usecase.dart';
+import '../../domain/usecases/toggle_pump_usecase.dart';
+import '../../../../resources/app_strings.dart';
 import 'package:bloc/bloc.dart';
 part 'water_pump_state.dart';
 class WaterPumpCubit extends Cubit<WaterPumpState> {

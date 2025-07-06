@@ -1,4 +1,4 @@
-import 'package:aqua_sol/resources/app_strings.dart';
+import '../resources/app_strings.dart';
 import 'package:equatable/equatable.dart';
 
 

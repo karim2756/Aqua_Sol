@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:aqua_sol/core/failures.dart';
-import 'package:aqua_sol/features/motor/domain/entities/motor_entity.dart';
-import 'package:aqua_sol/features/motor/domain/usecases/get_motor_status_usecase.dart';
-import 'package:aqua_sol/features/motor/domain/usecases/toggle_motor_usecase.dart';
-import 'package:aqua_sol/resources/app_strings.dart';
+import '../../../../core/failures.dart';
+import '../../domain/entities/motor_entity.dart';
+import '../../domain/usecases/get_motor_status_usecase.dart';
+import '../../domain/usecases/toggle_motor_usecase.dart';
+import '../../../../resources/app_strings.dart';
 import 'package:bloc/bloc.dart';
 
 part 'motor_state.dart';

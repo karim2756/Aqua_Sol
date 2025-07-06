@@ -1,10 +1,11 @@
-import 'package:aqua_sol/core/failures.dart';
-import 'package:aqua_sol/core/network_info.dart';
-import 'package:aqua_sol/features/motor/data/datasources/motor_remote_data_source.dart';
-import 'package:aqua_sol/features/motor/domain/entities/motor_entity.dart';
-import 'package:aqua_sol/features/motor/domain/repositories/motor_repository.dart';
+import '../../../../core/failures.dart';
+import '../datasources/motor_remote_data_source.dart';
+import '../../domain/entities/motor_entity.dart';
+import '../../domain/repositories/motor_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import '../../../../core/netwrok_info.dart';
 
 class MotorRepositoryImpl implements MotorRepository {
   final MotorRemoteDataSource remoteDataSource;
