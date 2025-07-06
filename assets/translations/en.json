@@ -74,5 +74,8 @@
     "weak_password": "Password is too weak.",
     "invalid_email": "Invalid email format.",
     "unknown_error": "An unexpected error occurred.",
-    "wrongEmailOrPass": "Wrong email or password"
+    "wrongEmailOrPass": "Wrong email or password",
+    "locNetworkError": "Please check your internet connection and try again",
+        "retry": "retry",
+    "generalError": "Something went wrong"
 }
