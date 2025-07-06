@@ -100,6 +100,7 @@ class AppStrings {
   static const String motorWorking = "motorWorking";
   static const String motorNotWorking = "motorNotWorking";
   static const String motorDescription = "motorDescription";
+  static const String retry = "retry";
 
   // weeds detection
   static const String noPredection = "noPredection";
@@ -122,6 +123,25 @@ class AppStrings {
   static const String bad = "bad";
   static const String good = "good";
   static const String stable = "stable";
-}
+  //errors
+  static const String generalError = "generalError";
+  static const String locTryAgain = "try_again";
+  static const String locLoginNotAvailable = "login_not_available";
+  static const String locTagAlreadyWritten = "tag_already_written";
+  static const String locLoginAuthError = "login_auth_error";
+  static const String locLoginAuthErrorMessage = "locLoginAuthErrorMessage";
+  static const String locUnAuthorizedError = "unauthorized_error";
+  static const String locUnAuthorizedErrorMessage =
+      "unauthorized_error_message";
+  //network errors
+  static const String locNetworkError = "locNetworkError";
+  static const String locServerError = "server_error";
+  static const String locServerErrorMessage = "server_error_message";
+  static const String locSessionErrorMessage = "session_error_message";
+  static const String locNoInternetConnection = "no_internet_connection";
+  static const String locNetworkErrorTitle = "network_error_title";
+  static const String locNetworkErrorDescription = "network_error_description";
+  static const String locNetworkErrorMessage = "locNetworkErrorMessage";
+  }
 
 enum NoRoute { title, body }
