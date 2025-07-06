@@ -1,5 +1,5 @@
-import 'package:aqua_sol/features/motor/presentation/pages/motor_screen.dart';
-import 'package:aqua_sol/features/splash/splash_screen.dart';
+import '../features/motor/presentation/pages/motor_screen.dart';
+import '../features/splash/splash_screen.dart';
 
 import '../features/water_pump/presentation/pages/water_pump_screen.dart';
 import 'app_strings.dart';
@@ -7,15 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../features/home/presentation/pages/home_screen.dart';
-import '../features/login/presentation/pages/login_screen.dart';
+import '../features/auth/presentation/pages/sign_in_screen.dart';
 import '../features/onboarding/presentation/pages/onboarding_screen.dart';
-import '../features/signup/presentation/pages/signup_screen.dart';
+import '../features/auth/presentation/pages/signup_screen.dart';
 import '../features/weed_detection/presentation/pages/weed_detection_screen.dart';
 
 class Routes {
   static const String splashScreen = "/";
   static const String onboardingRoute = "/onboarding";
-  static const String loginRoute = "/login";
+  static const String signInRoute = "/signin";
   static const String signUpRoute = "/singup";
   static const String homeRoute = "/home";
   static const String waterPumpRoute = "/water_pump";
@@ -26,7 +26,7 @@ static Map<String, dynamic> routesList = {
   onboardingRoute: const OnboardingScreen(),
   splashScreen: const SplashScreen(), 
   homeRoute: HomeScreen(),
-  loginRoute: const LoginScreen(),
+  signInRoute: const SignInScreen(),
   signUpRoute: const SignUpScreen(),
   waterPumpRoute: WaterPumpScreen(),
   weedDetection: WeedDetectionScreen(),

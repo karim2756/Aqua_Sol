@@ -5,6 +5,13 @@ class AppStrings {
   static const String english = "English";
   static const String arabic = "العربية";
   static const String cancel = "cancel";
+  static const String noInternet = "noInternet";
+  static const String userNotFound = "user_not_found";
+  static const String wrongPassword = "wrong_password";
+  static const String emailInUse = "email_already_in_use";
+  static const String weakPassword = "weak_password";
+  static const String unknownError = "unknown_error";
+  static const String wrongEmailOrPass = "wrongEmailOrPass";
 
   static const List<String> noRouteFound = [
     "ما هذا المكان!",
@@ -69,8 +76,7 @@ class AppStrings {
   static const String weedCardDesc = "weedCardDesc";
   static const String pumpCardDesc = "pumpCardDesc";
   static const String volume = "volume";
-  static const String liveCameraError= "liveCameraError";
-
+  static const String liveCameraError = "liveCameraError";
 
 //water pump
   static const String turnOn = "turnOn";
@@ -81,15 +87,14 @@ class AppStrings {
   static const String waterTank = "waterTank";
   static const String pump = "Pump";
 
-
   // live view camera
 
   static const String farmMonitoring = "farmMonitoring";
   static const String farmMonitoringDescription = "farmMonitoringDescription";
 
- // motor
+  // motor
   static const String pivotMotor = "pivotMotor";
-  static const String motorImage= "assets/images/pivot_motor2.png";
+  static const String motorImage = "assets/images/pivot_motor2.png";
   static const String motorSpeed = "motorSpeed";
   static const String motorNowIs = "motorNowIs";
   static const String motorWorking = "motorWorking";
@@ -117,7 +122,6 @@ class AppStrings {
   static const String bad = "bad";
   static const String good = "good";
   static const String stable = "stable";
-  
-  }
+}
 
 enum NoRoute { title, body }

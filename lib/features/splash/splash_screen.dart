@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:aqua_sol/resources/app_color.dart';
-import 'package:aqua_sol/resources/routes_manager.dart';
+import '../../resources/app_color.dart';
+import '../../resources/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 

@@ -1,8 +1,9 @@
-import 'package:aqua_sol/resources/app_color.dart';
-import 'package:aqua_sol/resources/app_strings.dart';
-import 'package:aqua_sol/resources/routes_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../resources/app_color.dart';
+import '../../../../resources/app_strings.dart';
+import '../../../../resources/routes_manager.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -160,7 +161,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           curve: Curves.ease,
                         );
                       } else {
-                        Navigator.pushNamed(context, Routes.loginRoute);
+                        Navigator.pushNamed(context, Routes.signInRoute);
                       }
                     },
                     child: Text(
