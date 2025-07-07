@@ -1,5 +1,6 @@
-import '../resources/app_strings.dart';
 import 'package:equatable/equatable.dart';
+
+import '../resources/app_strings.dart';
 
 
 abstract class Failure extends Equatable {

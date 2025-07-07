@@ -1,8 +1,10 @@
 import 'dart:async';
-import '../../resources/app_color.dart';
-import '../../resources/routes_manager.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../resources/app_color.dart';
+import '../../resources/routes_manager.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

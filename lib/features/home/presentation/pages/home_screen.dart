@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:easy_localization/easy_localization.dart';

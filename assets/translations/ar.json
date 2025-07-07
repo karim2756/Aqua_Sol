@@ -78,6 +78,43 @@
     "wrongEmailOrPass": "خطأ في البريد الالكتروني او كلمة المرور",
         "locNetworkError": "يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى",
     "retry": "اعادة المحاولة",
-    "generalError": "لقد حدث خطأ ما "
+    "generalError": "لقد حدث خطأ ما ",
+    "Corn_Cercospora_leaf_spot_Gray_leaf_spot_scientific": "سيركوسبورا زيا-مايديس",
+    "Corn_Cercospora_leaf_spot_Gray_leaf_spot_description": "البقعة الرمادية في أوراق الذرة تسبب آفات مستطيلة رمادية وتقلل من التمثيل الضوئي وغلة الذرة.",
+
+    "Corn_healthy_scientific": "لا يوجد",
+    "Corn_healthy_description": "أوراق الذرة السليمة. لا يوجد مرض.",
+
+    "Corn_Northern_Leaf_Blight_scientific": "إكزسروهيلوم تورسيكوم",
+    "Corn_Northern_Leaf_Blight_description": "آفة الأوراق الشمالية في الذرة تسبب آفات رمادية خضراء طويلة وتؤدي إلى موت الأوراق المبكر.",
+
+    "Potato___Early_blight_scientific": "ألترناريا سولاني",
+    "Potato___Early_blight_description": "الآفة المبكرة في البطاطس تسبب بقع داكنة دائرية وتؤدي إلى تساقط الأوراق وتقليل إنتاج الدرنات.",
+
+    "Potato___healthy_scientific": "لا يوجد",
+    "Potato___healthy_description": "أوراق البطاطس السليمة. لا يوجد مرض.",
+
+    "Potato___Late_blight_scientific": "فيتوفثورا إنفستانس",
+    "Potato___Late_blight_description": "الآفة المتأخرة في البطاطس تسبب آفات بنية مشبعة بالماء واشتهرت بسبب المجاعة الأيرلندية.",
+
+    "Weeds_scientific": "أنواع متعددة",
+    "Weeds_description": "الأعشاب الضارة تنافس المحاصيل على الموارد، مما يقلل من صحتها وغلتها.",
+
+    "Wheat_brown_rust_scientific": "بوسينيا تريتيكينا",
+    "Wheat_brown_rust_description": "الصدأ البني في القمح يظهر كبثور بنية حمراء ويؤثر على إنتاج القمح.",
+
+    "Wheat___Healthy_scientific": "لا يوجد",
+    "Wheat___Healthy_description": "القمح السليم. لا يوجد مرض.",
+    "Corn_Cercospora_leaf_spot Gray_leaf_spot": "البقعة الرمادية في أوراق الذرة",
+    "Corn_healthy": "أوراق الذرة السليمة",
+    "Corn_Northern_Leaf_Blight": "آفة الأوراق الشمالية في الذرة",
+    "Potato___Early_blight": "الآفة المبكرة في البطاطس",
+    "Potato___healthy": "أوراق البطاطس السليمة",
+    "Potato___Late_blight": "الآفة المتأخرة في البطاطس",
+    "Weeds": "الأعشاب الضارة",
+    "Wheat_brown_rust": "الصدأ البني في القمح",
+    "Wheat___Healthy": "القمح السليم"
+
+
 
 }

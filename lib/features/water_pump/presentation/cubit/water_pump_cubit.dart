@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:bloc/bloc.dart';
+
 import '../../../../core/failures.dart';
+import '../../../../resources/app_strings.dart';
 import '../../domain/entities/water_pump_entity.dart';
 import '../../domain/usecases/get_pump_status_usecase.dart';
 import '../../domain/usecases/toggle_pump_usecase.dart';
-import '../../../../resources/app_strings.dart';
-import 'package:bloc/bloc.dart';
+
 part 'water_pump_state.dart';
 class WaterPumpCubit extends Cubit<WaterPumpState> {
   final GetPumpStatus getPumpStatus;
