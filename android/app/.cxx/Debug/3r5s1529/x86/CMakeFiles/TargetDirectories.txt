@@ -1,0 +1,2 @@
+D:/flutter work/New folder/lib/aqua_sol_test/android/app/.cxx/Debug/3r5s1529/x86/CMakeFiles/edit_cache.dir
+D:/flutter work/New folder/lib/aqua_sol_test/android/app/.cxx/Debug/3r5s1529/x86/CMakeFiles/rebuild_cache.dir
