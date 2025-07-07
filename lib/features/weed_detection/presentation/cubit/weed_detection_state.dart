@@ -1,10 +1,19 @@
 part of 'weed_detection_cubit.dart';
 
-abstract class WeedDetectionState extends Equatable {
+abstract class WeedDetectionState {
   const WeedDetectionState();
-
-  @override
-  List<Object> get props => [];
 }
 
 class WeedDetectionInitial extends WeedDetectionState {}
+
+class WeedDetectionLoading extends WeedDetectionState {}
+
+class WeedDetectionLoaded extends WeedDetectionState {
+  final WeedDetectionEntity detection;
+  const WeedDetectionLoaded(this.detection);
+}
+
+class WeedDetectionError extends WeedDetectionState {
+  final String message;
+  const WeedDetectionError(this.message);
+}

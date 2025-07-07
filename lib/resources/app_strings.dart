@@ -5,6 +5,13 @@ class AppStrings {
   static const String english = "English";
   static const String arabic = "العربية";
   static const String cancel = "cancel";
+  static const String noInternet = "noInternet";
+  static const String userNotFound = "user_not_found";
+  static const String wrongPassword = "wrong_password";
+  static const String emailInUse = "email_already_in_use";
+  static const String weakPassword = "weak_password";
+  static const String unknownError = "unknown_error";
+  static const String wrongEmailOrPass = "wrongEmailOrPass";
 
   static const List<String> noRouteFound = [
     "ما هذا المكان!",
@@ -68,11 +75,8 @@ class AppStrings {
   static const String statisticsAndResults = "statisticsAndResults";
   static const String weedCardDesc = "weedCardDesc";
   static const String pumpCardDesc = "pumpCardDesc";
-  static const String power = "power";
-  static const String produced = "produced";
   static const String volume = "volume";
-  static const String status = "status";
-  static const String moisture = "moisture";
+  static const String liveCameraError = "liveCameraError";
 
 //water pump
   static const String turnOn = "turnOn";
@@ -81,13 +85,22 @@ class AppStrings {
   static const String working = "working";
   static const String notWorking = "notWorking";
   static const String waterTank = "waterTank";
-
+  static const String pump = "Pump";
 
   // live view camera
 
   static const String farmMonitoring = "farmMonitoring";
   static const String farmMonitoringDescription = "farmMonitoringDescription";
 
+  // motor
+  static const String pivotMotor = "pivotMotor";
+  static const String motorImage = "assets/images/pivot_motor2.png";
+  static const String motorSpeed = "motorSpeed";
+  static const String motorNowIs = "motorNowIs";
+  static const String motorWorking = "motorWorking";
+  static const String motorNotWorking = "motorNotWorking";
+  static const String motorDescription = "motorDescription";
+  static const String retry = "retry";
 
   // weeds detection
   static const String noPredection = "noPredection";
@@ -103,9 +116,32 @@ class AppStrings {
   static const String newText = "newText";
   static const String makeSureImageInFocus = "makeSureImageInFocus";
 
-  // solar panels
+  // soil moisture
 
-  static const String solarPanels = "solarPanels";
-}
+  static const String status = "status";
+  static const String moisture = "moisture";
+  static const String bad = "bad";
+  static const String good = "good";
+  static const String stable = "stable";
+  //errors
+  static const String generalError = "generalError";
+  static const String locTryAgain = "try_again";
+  static const String locLoginNotAvailable = "login_not_available";
+  static const String locTagAlreadyWritten = "tag_already_written";
+  static const String locLoginAuthError = "login_auth_error";
+  static const String locLoginAuthErrorMessage = "locLoginAuthErrorMessage";
+  static const String locUnAuthorizedError = "unauthorized_error";
+  static const String locUnAuthorizedErrorMessage =
+      "unauthorized_error_message";
+  //network errors
+  static const String locNetworkError = "locNetworkError";
+  static const String locServerError = "server_error";
+  static const String locServerErrorMessage = "server_error_message";
+  static const String locSessionErrorMessage = "session_error_message";
+  static const String locNoInternetConnection = "no_internet_connection";
+  static const String locNetworkErrorTitle = "network_error_title";
+  static const String locNetworkErrorDescription = "network_error_description";
+  static const String locNetworkErrorMessage = "locNetworkErrorMessage";
+  }
 
 enum NoRoute { title, body }

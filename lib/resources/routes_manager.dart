@@ -1,30 +1,36 @@
-import 'app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../features/auth/presentation/pages/sign_in_screen.dart';
+import '../features/auth/presentation/pages/signup_screen.dart';
 import '../features/home/presentation/pages/home_screen.dart';
-import '../features/login/presentation/pages/login_screen.dart';
+import '../features/motor/presentation/pages/motor_screen.dart';
 import '../features/onboarding/presentation/pages/onboarding_screen.dart';
-import '../features/signup/presentation/pages/signup_screen.dart';
-import '../features/water_pump/presentation/pages/water_pump.dart';
+import '../features/splash/splash_screen.dart';
+import '../features/water_pump/presentation/pages/water_pump_screen.dart';
 import '../features/weed_detection/presentation/pages/weed_detection_screen.dart';
+import 'app_strings.dart';
 
 class Routes {
-  static const String onboardingRoute = "/";
-  static const String loginRoute = "/login";
+  static const String splashScreen = "/";
+  static const String onboardingRoute = "/onboarding";
+  static const String signInRoute = "/signin";
   static const String signUpRoute = "/singup";
   static const String homeRoute = "/home";
   static const String waterPumpRoute = "/water_pump";
   static const String weedDetection = "/weed_detection";
+  static const String motorRoute = "/motor_route";
 
-  static Map<String, dynamic> routesList = {
-    onboardingRoute: const OnboardingScreen(),
-    homeRoute: HomeScreen(),
-    loginRoute: const LoginScreen(),
-    signUpRoute: const SignUpScreen(),
-    waterPumpRoute: WaterPumpScreen(),
-    weedDetection: WeedDetectionScreen(),
-  };
+static Map<String, dynamic> routesList = {
+  onboardingRoute: const OnboardingScreen(),
+  splashScreen: const SplashScreen(), 
+  homeRoute: HomeScreen(),
+  signInRoute: const SignInScreen(),
+  signUpRoute: const SignUpScreen(),
+  waterPumpRoute: WaterPumpScreen(),
+  weedDetection: WeedDetectionScreen(),
+  motorRoute:  MotorScreen(),
+};
 
   static Scaffold get unDefinedRoute {
     return Scaffold(

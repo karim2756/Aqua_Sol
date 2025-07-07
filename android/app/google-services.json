@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "544344751897",
+    "firebase_url": "https://iot-flutter-13608-default-rtdb.firebaseio.com",
+    "project_id": "iot-flutter-13608",
+    "storage_bucket": "iot-flutter-13608.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544344751897:android:78211a96b9328ff61fcf88",
+        "android_client_info": {
+          "package_name": "com.example.aqua_sol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCltWVECzEG_8m9gSnCG6kSDrzd-nqS04E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
