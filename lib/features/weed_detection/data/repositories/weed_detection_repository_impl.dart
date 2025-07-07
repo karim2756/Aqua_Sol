@@ -1,9 +1,11 @@
 import 'dart:io';
-import 'package:aqua_sol/features/weed_detection/data/datasources/weed_detection_local_data_source.dart';
+
 import 'package:dartz/dartz.dart';
-import 'package:aqua_sol/core/failures.dart';
+
+import '../../../../core/failures.dart';
 import '../../domain/entities/weed_detection_entity.dart';
 import '../../domain/repositories/weed_detection_repository.dart';
+import '../datasources/weed_detection_local_data_source.dart';
 
 class WeedDetectionRepositoryImpl implements WeedDetectionRepository {
   final WeedDetectionRemoteDataSource remoteDataSource;

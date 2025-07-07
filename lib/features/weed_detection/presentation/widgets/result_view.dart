@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:aqua_sol/features/weed_detection/domain/entities/weed_detection_entity.dart';
-import 'package:aqua_sol/features/weed_detection/presentation/cubit/weed_detection_cubit.dart';
-import 'package:aqua_sol/resources/app_color.dart';
-import 'package:aqua_sol/resources/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../../../resources/app_color.dart';
+import '../../../../resources/app_strings.dart';
+import '../../domain/entities/weed_detection_entity.dart';
+import '../cubit/weed_detection_cubit.dart';
 
 Widget buildResultView(
     BuildContext context,

@@ -1,7 +1,8 @@
+import 'package:dartz/dartz.dart';
+
 import '../../../../core/failures.dart';
 import '../entities/water_pump_entity.dart';
 import '../repositories/water_pump_repository.dart';
-import 'package:dartz/dartz.dart';
 
 class GetPumpStatus {
   final WaterPumpRepository repository;

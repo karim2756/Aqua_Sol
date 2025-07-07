@@ -1,6 +1,7 @@
+import 'package:dartz/dartz.dart';
+
 import '../../../../core/failures.dart';
 import '../repositories/motor_repository.dart';
-import 'package:dartz/dartz.dart';
 
 class ToggleMotor {
   final MotorRepository repository;

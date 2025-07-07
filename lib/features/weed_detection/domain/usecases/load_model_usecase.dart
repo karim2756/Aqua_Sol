@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:aqua_sol/core/failures.dart';
+
+import '../../../../core/failures.dart';
 import '../entities/weed_detection_entity.dart';
 import '../repositories/weed_detection_repository.dart';
 

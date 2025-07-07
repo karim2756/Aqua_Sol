@@ -1,7 +1,8 @@
+import 'package:dartz/dartz.dart';
+
 import '../../../../core/failures.dart';
 import '../entities/motor_entity.dart';
 import '../repositories/motor_repository.dart';
-import 'package:dartz/dartz.dart';
 
 class GetMotorStatus {
   final MotorRepository repository;

@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:aqua_sol/features/weed_detection/presentation/cubit/weed_detection_cubit.dart';
-import 'package:aqua_sol/features/weed_detection/presentation/widgets/IconButton.dart';
-import 'package:aqua_sol/resources/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../../../resources/app_strings.dart';
+import '../cubit/weed_detection_cubit.dart';
+import 'icon_button.dart';
 
 Widget buildInitialView(
     BuildContext context,
@@ -14,7 +14,6 @@ Widget buildInitialView(
     double screenHeight,
     WeedDetectionCubit cubit,
     ) {
-  final picker = ImagePicker();
   final fontSize = screenWidth * 0.05;
 
   return Column(

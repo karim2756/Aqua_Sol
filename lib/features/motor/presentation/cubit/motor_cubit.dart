@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:bloc/bloc.dart';
+
 import '../../../../core/failures.dart';
+import '../../../../resources/app_strings.dart';
 import '../../domain/entities/motor_entity.dart';
 import '../../domain/usecases/get_motor_status_usecase.dart';
 import '../../domain/usecases/toggle_motor_usecase.dart';
-import '../../../../resources/app_strings.dart';
-import 'package:bloc/bloc.dart';
 
 part 'motor_state.dart';
 

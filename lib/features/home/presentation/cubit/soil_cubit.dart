@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:aqua_sol/resources/app_strings.dart';
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+
 import '../../../../core/failures.dart';
+import '../../../../resources/app_strings.dart';
 import '../../domain/entities/soil_entity.dart';
 import '../../domain/usecases/get_soil_status_usecase.dart';
-import 'package:equatable/equatable.dart';
 
 part 'soil_state.dart';
 
@@ -32,7 +33,7 @@ class SoilCubit extends Cubit<SoilState> {
   String _mapFailureToMessage(Failure failure) {
     if (failure is NetworkFailure) return AppStrings.locNetworkError;
     if (failure is ServerFailure) {
-      return failure.message ?? AppStrings.generalError;
+      return failure.message;
     }
     return AppStrings.generalError;
   }

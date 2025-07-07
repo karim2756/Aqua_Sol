@@ -1,7 +1,7 @@
 
 import 'package:animate_do/animate_do.dart';
-import 'package:aqua_sol/features/home/domain/entities/soil_entity.dart';
-import 'package:aqua_sol/injection_container.dart';
+import '../../domain/entities/soil_entity.dart';
+import '../../../../injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';

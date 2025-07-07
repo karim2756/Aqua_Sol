@@ -1,14 +1,13 @@
-import 'package:aqua_sol/core/netwrok_info.dart';
-import 'package:aqua_sol/resources/app_strings.dart';
+import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../core/failures.dart';
+import '../../../../core/netwrok_info.dart';
+import '../../../../resources/app_strings.dart';
 import '../../domain/entities/soil_entity.dart';
 import '../../domain/repositories/soil_repository.dart';
 import '../datasources/soil_remote_data_source.dart';
-import 'package:dartz/dartz.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 class SoilRepositoryImpl implements SoilRepository {
   final SoilRemoteDataSource remoteDataSource;
@@ -37,7 +36,7 @@ class SoilRepositoryImpl implements SoilRepository {
           moistureValue: moisture,
           hasInternet: true, // We know we have internet if we got here
         ));
-      } on FirebaseException catch (e) {
+      } on FirebaseException {
         return Left(ServerFailure(message: AppStrings.generalError.tr()));
       } catch (e) {
         return Left(ServerFailure());

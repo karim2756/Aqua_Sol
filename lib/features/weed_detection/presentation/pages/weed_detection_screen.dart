@@ -1,15 +1,15 @@
 
-import 'package:aqua_sol/features/weed_detection/presentation/widgets/InitialView.dart';
-import 'package:aqua_sol/features/weed_detection/presentation/widgets/LoadingView.dart';
-import 'package:aqua_sol/features/weed_detection/presentation/widgets/ResultView.dart';
-import 'package:aqua_sol/resources/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../resources/app_color.dart';
 import '../../../../injection_container.dart';
+import '../../../../resources/app_color.dart';
+import '../../../../resources/app_strings.dart';
 import '../cubit/weed_detection_cubit.dart';
+import '../widgets/initial_view.dart';
+import '../widgets/loading_view.dart';
+import '../widgets/result_view.dart';
 
 class WeedDetectionScreen extends StatelessWidget {
   const WeedDetectionScreen({super.key});

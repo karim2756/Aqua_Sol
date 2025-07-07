@@ -1,9 +1,11 @@
 import 'dart:io';
-import 'package:aqua_sol/resources/app_strings.dart';
+
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
 import 'package:tflite_flutter/tflite_flutter.dart';
-import 'package:flutter/services.dart';
+
+import '../../../../resources/app_strings.dart';
 
 class WeedDetectionRemoteDataSource {
   late Interpreter _interpreter;

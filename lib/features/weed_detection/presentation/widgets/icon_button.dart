@@ -1,6 +1,6 @@
-import 'package:aqua_sol/resources/app_color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../resources/app_color.dart';
 
 Widget buildIconButton(
     IconData icon,
