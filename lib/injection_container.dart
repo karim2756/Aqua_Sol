@@ -1,3 +1,14 @@
+import 'package:aqua_sol/features/home/data/datasources/soil_remote_data_source.dart';
+import 'package:aqua_sol/features/home/data/repositories/soil_repository_impl.dart';
+import 'package:aqua_sol/features/home/domain/repositories/soil_repository.dart';
+import 'package:aqua_sol/features/home/domain/usecases/get_soil_status_usecase.dart';
+import 'package:aqua_sol/features/home/presentation/cubit/soil_cubit.dart';
+import 'package:aqua_sol/features/weed_detection/data/datasources/weed_detection_local_data_source.dart';
+import 'package:aqua_sol/features/weed_detection/data/repositories/weed_detection_repository_impl.dart';
+import 'package:aqua_sol/features/weed_detection/domain/repositories/weed_detection_repository.dart';
+import 'package:aqua_sol/features/weed_detection/domain/usecases/load_model_usecase.dart';
+import 'package:aqua_sol/features/weed_detection/presentation/cubit/weed_detection_cubit.dart';
+
 import 'features/motor/data/datasources/motor_remote_data_source.dart';
 import 'features/motor/data/repositories/motor_repository_impl.dart';
 import 'features/motor/domain/repositories/motor_repository.dart';
@@ -32,7 +43,10 @@ Future<void> init() async {
   sl.registerFactory(
       () => WaterPumpCubit(getPumpStatus: sl(), togglePump: sl()));
   sl.registerFactory(() => MotorCubit(getMotorStatus: sl(), toggleMotor: sl()));
-
+  sl.registerFactory(() => WeedDetectionCubit(
+    detectWeeds: sl(),
+    loadModel: sl(),
+  ));
   // Use cases
   sl.registerLazySingleton(() => SignIn(sl()));
   sl.registerLazySingleton(() => SignUp(sl()));
@@ -41,6 +55,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => TogglePump(sl()));
   sl.registerLazySingleton(() => GetMotorStatus(sl()));
   sl.registerLazySingleton(() => ToggleMotor(sl()));
+  sl.registerLazySingleton(() => DetectWeeds(sl()));
+  sl.registerLazySingleton(() => LoadModel(sl()));
+
 
   // Repository
   sl.registerLazySingleton<AuthRepository>(
@@ -56,6 +73,9 @@ Future<void> init() async {
         remoteDataSource: sl(),
         networkInfo: sl(),
       ));
+  sl.registerLazySingleton<WeedDetectionRepository>(() => WeedDetectionRepositoryImpl(
+    remoteDataSource: sl(),
+  ));
 
   // Data sources
   sl.registerLazySingleton(() => AuthRemoteDataSource());
@@ -64,6 +84,7 @@ Future<void> init() async {
       
   sl.registerLazySingleton<MotorRemoteDataSource>(
       () => MotorRemoteDataSource());
+  sl.registerFactory(() => WeedDetectionRemoteDataSource());
 
   // Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl(), sl()));
@@ -72,4 +93,28 @@ Future<void> init() async {
   sl.registerLazySingleton(() => FirebaseAuth.instance);
   sl.registerLazySingleton(() => Connectivity());
   sl.registerLazySingleton(() => InternetConnectionChecker());
+
+
+  // Data sources
+  sl.registerLazySingleton<SoilRemoteDataSource>(
+        () => SoilRemoteDataSource(),
+  );
+
+// Repository
+  sl.registerLazySingleton<SoilRepository>(
+        () => SoilRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
+
+// Use cases
+  sl.registerLazySingleton(
+        () => GetSoilStatus(sl()),
+  );
+
+// Bloc
+  sl.registerFactory(
+        () => SoilCubit(sl()),
+  );
 }

@@ -77,5 +77,42 @@
     "wrongEmailOrPass": "Wrong email or password",
     "locNetworkError": "Please check your internet connection and try again",
         "retry": "retry",
-    "generalError": "Something went wrong"
+    "generalError": "Something went wrong",
+
+    "Corn_Cercospora_leaf_spot_Gray_leaf_spot_scientific": "Cercospora zeae-maydis",
+    "Corn_Cercospora_leaf_spot_Gray_leaf_spot_description": "Gray leaf spot causes gray-tan rectangular lesions on corn leaves, reducing photosynthesis and yield.",
+
+    "Corn_healthy_scientific": "None",
+    "Corn_healthy_description": "Corn leaves are healthy. No disease detected.",
+
+    "Corn_Northern_Leaf_Blight_scientific": "Exserohilum turcicum",
+    "Corn_Northern_Leaf_Blight_description": "Northern Leaf Blight produces elongated gray-green lesions, leading to premature leaf death.",
+
+    "Potato___Early_blight_scientific": "Alternaria solani",
+    "Potato___Early_blight_description": "Early blight causes dark concentric spots, leading to leaf drop and reduced tuber yield.",
+
+    "Potato___healthy_scientific": "None",
+    "Potato___healthy_description": "Potato leaves are healthy. No disease detected.",
+
+    "Potato___Late_blight_scientific": "Phytophthora infestans",
+    "Potato___Late_blight_description": "Late blight causes brown water-soaked lesions, known for the Irish Potato Famine.",
+
+    "Weeds_scientific": "Various species",
+    "Weeds_description": "Weeds compete with crops for resources, lowering crop health and yield.",
+
+    "Wheat_brown_rust_scientific": "Puccinia triticina",
+    "Wheat_brown_rust_description": "Brown rust appears as reddish-brown pustules and affects wheat yield.",
+
+    "Wheat___Healthy_scientific": "None",
+    "Wheat___Healthy_description": "Wheat is healthy. No disease present.",
+    "Corn_Cercospora_leaf_spot Gray_leaf_spot": "Corn Gray Leaf Spot",
+    "Corn_healthy": "Healthy Corn",
+    "Corn_Northern_Leaf_Blight": "Corn Northern Leaf Blight",
+    "Potato___Early_blight": "Potato Early Blight",
+    "Potato___healthy": "Healthy Potato",
+    "Potato___Late_blight": "Potato Late Blight",
+    "Weeds": "Weeds",
+    "Wheat_brown_rust": "Wheat Brown Rust",
+    "Wheat___Healthy": "Healthy Wheat"
+
 }

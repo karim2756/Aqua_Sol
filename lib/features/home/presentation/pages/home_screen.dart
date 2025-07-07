@@ -1,5 +1,6 @@
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:aqua_sol/features/home/presentation/widgets/soil_card.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +9,6 @@ import '../../../../resources/app_color.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../../resources/routes_manager.dart';
 import '../widgets/home_cards.dart';
-import '../widgets/soil_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
